@@ -1,7 +1,7 @@
 #  User Contacts save website 👤
 > A clean and #responsive user contacts save Website 
 <br>
-<img src='QuizWebsiteGIF.gif'>
+<img src='contacts webapp sc.png'>
 :star: Star me on GitHub — it helps!
 
 ## Features 📋
