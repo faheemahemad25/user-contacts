@@ -1,7 +1,7 @@
 #  User Contacts save website 👤
 > A clean and #responsive user contacts save Website 
 <br>
-<img src='contacts webapp sc.png'>
+<img src='contacts webapp sc.png' width="600px">
 :star: Star me on GitHub — it helps!
 >
 <br>
