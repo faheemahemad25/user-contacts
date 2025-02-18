@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind cdn -->
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom css -->
+     <link rel="stylesheet" href="style.css">
+    <title>OOPS-constructor Person Contact save app-oops approach 1.constructor object function</title>
+</head>
+<body>
+    <section class="p-[50px]  max-md:p-2">
+        <h1>OOPs = object oriented progrmming approach/Style - <span class="font-bold text-blue-500 ">Object Constructor Function</span></h1>
+        <!-- <h1>OOPs = object oriented progrmming approach/Style - class </h1> -->
+        <div class="contact-container grid grid-cols-12 gap-5 p-5  max-md:grid-cols-1 max-md:gap-0">
+            <!-- left side -->
+            <div class="contact col-span-4  p-5 bg-gray-200 rounded-lg ">
+                <h1 class="text-xl font-bold text-center mb-5">Contact Details</h1>
+                <form action="#" id="contactForm" class="mb-5">
+                    <label for="name" class="text-gray-600">Name</label>  <!--📗🔖 for="" and input's id="" should have same name WHY? for improves accessibility, as screen readers will associate the label with the input field.-->
+                    <input type="text" name="name" id="name" class="border-2 p-2 rounded-2xl block mb-5 w-[80%]">
+
+                    <label for="contact-num" class="text-gray-600">Contact Number</label>
+                    <input type="text" name="contact-num" id="contact-num" class="border-2 p-2 rounded-2xl block mb-5 w-[80%]">
+
+                    <label for="addressORremarks" class="text-gray-600">Remarks / Address</label>
+                    <input type="text" name="addressORremarks" id="addressORremarks" class="border-2 p-2 rounded-2xl block mb-5 w-[80%]">
+                   
+                </form>
+                <!--📗🔖 form submit via outside button NOW need manually submit handle via js so need one method requestSubmit() 
+                NOTE that'why mostly use inside button -->
+                <div class="flex flex-col items-center">
+                    <span class="alertMsg hidden bg-green-500 text-white p-2 rounded-md font-semibold mb-5 ">
+                        Record added Successfully!
+                    </span>
+                    <button type="submit" id="submit-btn" class="btn-Style block mb-5 ">
+                       <i class="fa-solid fa-plus"></i> Add and Save Contact
+                   </button>
+                   <button type="button" id="cancel-btn" class="btn-Style block mb-5 " onclick="clearInputs()">
+                       <i class="fa-solid fa-xmark"></i> Cancel
+                   </button>  
+                </div>
+            </div>
+            <!-- right side -->
+            <div class="display-contact col-span-8 p-5 bg-gray-300 rounded-lg ">
+                <!-- head -->
+                <div class="flex justify-between mb-5">
+                    <h2 class="text-xl font-bold ">Available Contacts</h2>
+                    <button type="button" id="reset-btn" class="btn-Style">
+                        Reset
+                    </button>
+                </div>
+                <!-- body -->
+                 <div class="contacts-list flex flex-wrap gap-5 overflow-auto h-[500px] ">
+                    <!-- card 1 -->
+                    <!-- <div class="contact-card shadow-lg bg-white w-[calc(50%-20px)] max-md:w-[100%] p-2 rounded-md text-center">
+                        <div class="mb-2 ">
+                            <span class="font-bold">Person ID:</span>
+                            <span class="text-gray-500 ">1</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Name:</span>
+                            <span class="text-gray-500 ">Anuj</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Address:</span>
+                            <span class="text-gray-500 ">Hapur</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Phone Number:</span>
+                            <span class="text-gray-500 ">9897654103</span>
+                        </div>
+                        <button class="btn-Style">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div> -->
+                    <!-- card 2 -->
+                    <!-- <div class="contact-card shadow-lg bg-white w-[calc(50%-20px)] max-md:w-[100%] p-2 rounded-md text-center">
+                        <div class="mb-2 ">
+                            <span class="font-bold">Person ID:</span>
+                            <span class="text-gray-500 ">2</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Name:</span>
+                            <span class="text-gray-500 ">Anuj</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Address:</span>
+                            <span class="text-gray-500 ">Hapur</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Phone Number:</span>
+                            <span class="text-gray-500 ">9897654103</span>
+                        </div>
+                        <button class="btn-Style">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div> -->
+                    <!-- card 3 -->
+                    <!-- <div class="contact-card shadow-lg bg-white w-[calc(50%-20px)] max-md:w-[100%] p-2 rounded-md text-center">
+                        <div class="mb-2 ">
+                            <span class="font-bold">Person ID:</span>
+                            <span class="text-gray-500 ">3</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Name:</span>
+                            <span class="text-gray-500 ">Anuj</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Address:</span>
+                            <span class="text-gray-500 ">Hapur</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Phone Number:</span>
+                            <span class="text-gray-500 ">9897654103</span>
+                        </div>
+                        <button class="btn-Style">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div> -->
+                    <!-- card 3 -->
+                    <!-- <div class="contact-card shadow-lg bg-white w-[calc(50%-20px)] max-md:w-[100%] p-2 rounded-md text-center">
+                        <div class="mb-2 ">
+                            <span class="font-bold">Person ID:</span>
+                            <span class="text-gray-500 ">3</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Name:</span>
+                            <span class="text-gray-500 ">Anuj</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Address:</span>
+                            <span class="text-gray-500 ">Hapur</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Phone Number:</span>
+                            <span class="text-gray-500 ">9897654103</span>
+                        </div>
+                        <button class="btn-Style">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div> -->
+                    <!-- card 3 -->
+                    <!-- <div class="contact-card shadow-lg bg-white w-[calc(50%-20px)] max-md:w-[100%] p-2 rounded-md text-center">
+                        <div class="mb-2 ">
+                            <span class="font-bold">Person ID:</span>
+                            <span class="text-gray-500 ">3</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Name:</span>
+                            <span class="text-gray-500 ">Anuj</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Address:</span>
+                            <span class="text-gray-500 ">Hapur</span>
+                        </div>
+                        <div class="mb-2 ">
+                            <span class="font-bold">Phone Number:</span>
+                            <span class="text-gray-500 ">9897654103</span>
+                        </div>
+                        <button class="btn-Style">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div> -->
+
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"version":3,"sources":["vite.config.js"],"names":["plugins"],"mappings":";;;;;;;AAAA;;AACA;;;;eACe,wBAAa;AAC1BA,EAAAA,OAAO,EAAE,CACP,wBADO;AADiB,CAAb,C","sourcesContent":["import { defineConfig } from 'vite'\r\nimport tailwindcss from '@tailwindcss/vite'\r\nexport default defineConfig({\r\n  plugins: [\r\n    tailwindcss(),\r\n  ],\r\n})"],"file":"vite.config.dev.js"}
