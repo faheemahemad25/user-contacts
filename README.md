@@ -14,7 +14,7 @@
 🖊️ 3. fully Input validation and ! not operation like !true means false and Regular Expression and its method .test() method <br>
 
 ## Features 📋
-⚡️ creates objects via contructor approach. or OOPs programming.
+⚡️ creates objects via contructor approach. or OOPs programming.<br>
 ⚡️ Responsive
 
 ## Tools Used 🛠️
